@@ -6,7 +6,6 @@ export const mainRoutes = [
     exact: false,
     path: "/contacts ",
     component: lazy(() => import("../pages/ContactsPage")),
-    isPrivate: true,
     isRestricted: false,
   },
   {
@@ -14,7 +13,6 @@ export const mainRoutes = [
     exact: false,
     path: "/register ",
     component: lazy(() => import("../pages/AuthPage")),
-    isPrivate: false,
     isRestricted: true,
   },
   {
@@ -22,7 +20,6 @@ export const mainRoutes = [
     exact: false,
     path: "/login ",
     component: lazy(() => import("../pages/AuthPage")),
-    isPrivate: false,
     isRestricted: true,
   },
 ];
