@@ -4,7 +4,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import { mainRoutes } from "../../routes/mainRoutes";
 
 const NavigationRoutes = () => {
-  const isAuth = true;
+  const isAuth = false;
   return (
     <Suspense fallback={<h2>loading..</h2>}>
       <Switch>
@@ -15,16 +15,9 @@ const NavigationRoutes = () => {
             <Route key={path} path={path} exact={exact} component={component} />
           )
         )} */}
-
-        {mainRoutes.map(({ path, exact, component, isRestricted }) =>
-          isAuth && isRestricted ? (
-              <Redirect to="/contacts" />
-            //    console.log("true")
-            <Route key={path} path={path} exact={exact} component={component} />
-          ) : (
-            // console.log("false")
-          )
-        )}
+        {mainRoutes.map(({ path, exact, component, isRestricted }) => (
+          <Route key={path} path={path} exact={exact} component={component} />
+        ))}
       </Switch>
     </Suspense>
   );
