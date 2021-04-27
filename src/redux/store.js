@@ -1,9 +1,13 @@
-import { contactsReducer } from "./contacts/contactsRecuders";
-import { configureStore } from "@reduxjs/toolkit";
+import { contactsReducer } from "./contacts/contactsRecuders"
+import { configureStore } from "@reduxjs/toolkit"
+import { authReducer } from "./auth/authReducers"
 
 const store = configureStore({
-  reducer: { contacts: contactsReducer },
+  reducer: {
+    auth: authReducer,
+    contacts: contactsReducer,
+  },
   devTools: process.env.NODE_ENV === "development",
-});
+})
 
-export default store;
+export default store
