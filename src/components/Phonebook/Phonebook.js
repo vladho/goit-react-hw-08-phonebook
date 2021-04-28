@@ -1,29 +1,30 @@
-import React, { Component } from "react";
-import styles from "./Phonebook.module.css";
+import React, { Component } from "react"
+import styles from "./Phonebook.module.css"
 
 class Phonebook extends Component {
   initialState = {
     name: "",
     number: "",
-  };
+  }
   state = {
     ...this.initialState,
-  };
+  }
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.onSubmit(this.state);
-    this.reset();
-  };
+    console.log(this.props)
+    e.preventDefault()
+    this.props.onSubmit(this.state)
+    this.reset()
+  }
 
   onInputChange = ({ target }) => {
-    const { name, value } = target;
-    this.setState({ [name]: value });
-  };
+    const { name, value } = target
+    this.setState({ [name]: value })
+  }
 
   reset = () => {
-    this.setState({ ...this.initialState });
-  };
+    this.setState({ ...this.initialState })
+  }
   render() {
     return (
       <div className={styles.phonebook}>
@@ -55,8 +56,8 @@ class Phonebook extends Component {
           </button>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default Phonebook;
+export default Phonebook

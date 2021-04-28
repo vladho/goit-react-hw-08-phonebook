@@ -9,6 +9,9 @@ import {
   deleteContactSuccess,
   deleteContactRequest,
   deleteContactError,
+  editContactRequest,
+  editContactSuccess,
+  editContactError,
 } from "./contactsActions"
 
 export const addContact = ({ name, number }) => async (dispatch) => {
@@ -44,5 +47,21 @@ export const deleteContact = (id) => async (dispatch) => {
     dispatch(deleteContactSuccess(id))
   } catch (error) {
     dispatch(deleteContactError(error))
+  }
+}
+
+export const editContact = ({ id, name, number }) => async (dispatch) => {
+  const contacts = {
+    name,
+    number,
+  }
+  console.log(contacts)
+  dispatch(editContactRequest())
+  try {
+    await axios.patch(`/contacts/${id}`, contacts)
+    dispatch(editContactSuccess({ id, name, number }))
+  } catch (error) {
+    // console.log(error)
+    dispatch(editContactError(error))
   }
 }

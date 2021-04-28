@@ -1,11 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import ContactsItem from "./ContactsItem/ContactsItem";
-import { connect } from "react-redux";
-import { deleteContact } from "../../redux/contacts/contactsOperation";
-import { getFilterContacts } from "../../redux/contacts/contactsSelector";
+import React from "react"
+import PropTypes from "prop-types"
+import ContactsItem from "./ContactsItem/ContactsItem"
+import { connect } from "react-redux"
+import {
+  deleteContact,
+  editContact,
+} from "../../redux/contacts/contactsOperation"
+import { getFilterContacts } from "../../redux/contacts/contactsSelector"
 
-const Contacts = ({ deleteContact, filterContacts }) => {
+const Contacts = ({ deleteContact, filterContacts, editContact }) => {
   return (
     <>
       <ul className="contacts__name">
@@ -14,27 +17,29 @@ const Contacts = ({ deleteContact, filterContacts }) => {
             contact={el}
             key={el.id}
             deleteContact={deleteContact}
+            editContact={editContact}
           />
         ))}
       </ul>
     </>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state) => ({
   filterContacts: getFilterContacts(state),
-});
+})
 
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteContact: (id) => dispatch(deleteContact(id)),
-  };
-};
+    editContact: (id) => dispatch(editContact(id)),
+  }
+}
 
 Contacts.propTypes = {
   items: PropTypes.array,
   deleteContact: PropTypes.func.isRequired,
   filter: PropTypes.string,
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Contacts);
+export default connect(mapStateToProps, mapDispatchToProps)(Contacts)
