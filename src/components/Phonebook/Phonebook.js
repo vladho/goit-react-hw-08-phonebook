@@ -11,9 +11,9 @@ class Phonebook extends Component {
     ...this.initialState,
   };
 
-  handleSubmit = async (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    await this.setState({ id: uuidv4() });
+    // await this.setState({ id: uuidv4() });
     this.props.onSubmit(this.state);
     this.reset();
   };
@@ -38,7 +38,7 @@ class Phonebook extends Component {
               name="name"
               className={styles.inpt}
               onChange={this.onInputChange}
-              autoComplete="off"
+              // autoComplete="off"
             />
           </label>
           <label>
@@ -49,7 +49,7 @@ class Phonebook extends Component {
               name="number"
               className={styles.inpt}
               onChange={this.onInputChange}
-              autoComplete="off"
+              // autoComplete="off"
             />
           </label>
           <button type="submit" className={styles.btn}>
