@@ -4,7 +4,7 @@ import { filterContacts } from "../../redux/contacts/contactsActions";
 import { getFilter } from "../../redux/contacts/contactsSelector";
 import styles from "./Filter.module.css";
 
-const Filter = ({ filter, onChange, filterContacts }) => {
+const Filter = ({ filter, filterContacts }) => {
   const SetFilter = (e) => {
     filterContacts(e.target.value);
   };

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styles from "./Phonebook.module.css";
-import { v4 as uuidv4 } from "uuid";
 
 class Phonebook extends Component {
   initialState = {
@@ -13,7 +12,6 @@ class Phonebook extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // await this.setState({ id: uuidv4() });
     this.props.onSubmit(this.state);
     this.reset();
   };

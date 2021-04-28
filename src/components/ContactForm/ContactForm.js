@@ -40,9 +40,7 @@ const ContactForm = ({ items, addContact, getContacts }) => {
 };
 
 const mapStateToProps = (contacts) => {
-  console.log(contacts);
   return {
-    // isAuth: getIsAuthenticated(state),
     loading: getLoading(contacts),
     items: getAllContacts(contacts),
   };
