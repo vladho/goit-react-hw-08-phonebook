@@ -16,7 +16,7 @@ export const addContact = ({ name, number }) => async (dispatch) => {
     name,
     number,
   };
-  console.log(contacts);
+  // console.log(contacts);
   dispatch(addContactRequest());
   try {
     const { data } = await axios.post("/contacts", contacts);
@@ -31,6 +31,7 @@ export const getContacts = () => async (dispatch) => {
   dispatch(getContactsRequest());
   try {
     const { data } = await axios.get("/contacts");
+    // console.log(data);
     dispatch(getContactsSuccess(data));
   } catch (error) {
     dispatch(getContactsError(error));

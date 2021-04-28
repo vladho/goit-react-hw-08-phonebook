@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Contacts from "../Contacts/Contacts";
 import Filter from "../Filter/Filter";
@@ -13,10 +13,12 @@ import {
   getLoading,
 } from "../../redux/contacts/contactsSelector";
 
-const ContactForm = ({ items, addContact }) => {
+const ContactForm = ({ items, addContact, getContacts }) => {
+  useEffect(() => {
+    getContacts();
+  }, [getContacts]);
+
   const submitForm = (data) => {
-    console.log(data);
-    console.log(items);
     const isOriginal = items.find(
       (item) => item.name.toLowerCase() === data.name.toLowerCase()
     );

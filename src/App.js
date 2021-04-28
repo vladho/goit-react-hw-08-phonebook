@@ -49,7 +49,7 @@ const App = ({ items, addContact, getContacts, loading, isAuth }) => {
 
 const mapStateToProps = (state) => {
   return {
-    // isAuth: getIsAuthenticated(state),
+    isAuth: getIsAuthenticated(state),
     // loading: getLoading(contacts),
     // items: getAllContacts(contacts),
   };
