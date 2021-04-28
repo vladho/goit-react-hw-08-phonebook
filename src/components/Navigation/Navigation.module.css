@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  justify-content: center;
+}
+
+.item {
+  list-style: none;
+}
+
+.item:not(:first-child) {
+  margin-left: 15px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.activeLink {
+  color: blue;
+}

@@ -1,16 +1,18 @@
-import React from "react";
-import styles from "./ContactsItem.module.css";
+import React from "react"
+import styles from "./ContactsItem.module.css"
+import IconButton from "@material-ui/core/IconButton"
+import DeleteIcon from "@material-ui/icons/Delete"
 
 const ContactsItem = ({ contact, deleteContact }) => {
-  const { name, number, id } = contact;
+  const { name, number, id } = contact
   return (
     <li className={styles.name}>
       {name}: {number}
-      <button className={styles.btn} onClick={() => deleteContact(id)}>
-        delete
-      </button>
+      <IconButton aria-label="delete" onClick={() => deleteContact(id)}>
+        <DeleteIcon />
+      </IconButton>
     </li>
-  );
-};
+  )
+}
 
-export default ContactsItem;
+export default ContactsItem

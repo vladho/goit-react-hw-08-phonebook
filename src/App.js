@@ -1,7 +1,7 @@
-import "./App.css";
-import Header from "./components/Header/Header";
+import "./App.css"
+import Header from "./components/Header/Header"
 
-import Main from "./components/Main/Main";
+import Main from "./components/Main/Main"
 
 const App = ({ loading }) => {
   return (
@@ -10,7 +10,7 @@ const App = ({ loading }) => {
       <Header />
       <Main />
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App
