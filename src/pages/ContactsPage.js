@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import ContactForm from "../components/ContactForm/ContactForm";
+import { getCurrentUser } from "../redux/auth/authOperation";
 
-const ContactsPage = () => {
+const ContactsPage = ({ getUser }) => {
+  useEffect(() => {
+    getUser();
+  }, [getUser]);
   return <ContactForm />;
 };
 
-export default ContactsPage;
+const mapDispatchToProps = { getUser: getCurrentUser };
+
+export default connect(null, mapDispatchToProps)(ContactsPage);
