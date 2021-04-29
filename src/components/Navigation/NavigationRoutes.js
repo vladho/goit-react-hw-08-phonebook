@@ -1,15 +1,10 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
-import { getCurrentUser } from "../../redux/auth/authOperation";
 import { getIsAuthenticated } from "../../redux/auth/authSelector";
 import { mainRoutes } from "../../routes/mainRoutes";
 
-const NavigationRoutes = ({ isAuth, getUser }) => {
-  useEffect(() => {
-    getUser();
-  }, [getUser]);
-
+const NavigationRoutes = ({ isAuth }) => {
   return (
     <Suspense fallback={<h2>loading..</h2>}>
       <Switch>
@@ -33,6 +28,4 @@ const mapStateToProps = (state) => ({
   isAuth: getIsAuthenticated(state),
 });
 
-const mapDispatchToProps = { getUser: getCurrentUser };
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationRoutes);
+export default connect(mapStateToProps)(NavigationRoutes);
