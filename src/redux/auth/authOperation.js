@@ -44,6 +44,7 @@ export const login = (credentials) => async (dispatch) => {
     dispatch(loginSuccess(response.data));
   } catch (error) {
     dispatch(loginError(error.message));
+    alert("Wrong password or username, pls try again");
   }
 };
 

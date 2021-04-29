@@ -1,0 +1,7 @@
+[build]
+published ="build"
+
+[[redirects]]
+from= "/contacts*"
+to="/index.html"
+status=200
