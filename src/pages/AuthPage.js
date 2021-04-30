@@ -1,12 +1,12 @@
-import React from "react"
-import AuthForm from "../components/AuthForm/AuthForm"
+import React from "react";
+import AuthForm from "../components/AuthForm/AuthForm";
 
 const AuthPage = () => {
   return (
     <>
       <AuthForm />
     </>
-  )
-}
+  );
+};
 
-export default AuthPage
+export default AuthPage;

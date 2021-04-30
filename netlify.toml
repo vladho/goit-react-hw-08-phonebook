@@ -2,6 +2,6 @@
 published ="build"
 
 [[redirects]]
-from= "/contacts*"
+from= "/*"
 to="/index.html"
 status=200

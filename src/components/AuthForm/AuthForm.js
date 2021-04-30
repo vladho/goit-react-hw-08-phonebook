@@ -19,13 +19,13 @@ class AuthForm extends Component {
   };
   onHandleSubmit = (e) => {
     e.preventDefault();
-    this.props.location.pathname.slice(1) === "login"
+    this.props.match.url.slice(1) === "login"
       ? this.props.onLogin(this.state)
       : this.props.onRegister(this.state);
     this.setState({ ...this.initialState });
   };
   render() {
-    const currentPage = this.props.location.pathname.slice(1);
+    const currentPage = this.props.match.url.slice(1);
     const isLoginPage = currentPage === "login" ? "Pls, SingIn" : "Pls, SingUp";
 
     return (
